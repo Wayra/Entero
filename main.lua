@@ -65,13 +65,14 @@ function goSolo(event)
 	transition.to(menuPrincipal.cuadrados, { alpha=0, time=100 } )
 	transition.to(menuSecundario.grupo, { alpha=0, time=100 } )
 	transition.to(solo.grupo, { alpha=1, time=20 } )
-	--arcade.start()
+	arcade.start()
 end
 
 ----------------------------
 -------------------------------------------Reg
 --------------------------------------------------
-
+--------Prube degithubda----------------
+-------------------
 
 function reg(event)
 		transition.to(menuSecundario.grupo,{alpha = 0, time = 300})
