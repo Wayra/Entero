@@ -70,13 +70,35 @@ end
 
 ----------------------------
 -------------------------------------------Reg
---------------------------------------------------
---------Prube degithubda----------------
--------------------
+
 
 function reg(event)
 		transition.to(menuSecundario.grupo,{alpha = 0, time = 300})
 		transition.to(menuPrincipal.grupo,{alpha = 1, time = 1000})
+	return true
+end
+
+-----ArcadeReg---------------------
+--------------------------
+
+function Ade(event)
+	arcade.returnB:removeEventListener("touch",returnMenu)
+end
+
+function returnMenu(event)
+	transition.to(menuPrincipal.cuadrados,{alpha = 1, time = 100})
+	transition.to(menuPrincipal.grupo,{alpha = 1, time = 100})
+	transition.to(arcade.grupo,{alpha = 0, time = 100})
+	timer.performWithDelay(100,Ade,1)
+end
+
+function arcadeReturn(event)
+		if arcade.cer == true then
+			print("entre")
+			arcade.returnB.isVisible = true
+			arcade.returnB:addEventListener("touch",returnMenu)
+			cer = false
+		end
 	return true
 end
 ------------
@@ -113,6 +135,10 @@ function cerr(event)
 	end
 	return true
 end
+
+
+
+
 
 -----Music--------------
 -----------------
@@ -152,6 +178,14 @@ end
 
 -------------END-----------
 ------------------------
+
+
+
+
+
+
+
+
 
 
 function openURL(event)
@@ -220,5 +254,5 @@ menuSecundario.grupo:insert(multi1)
 
 
 menuPrincipal.conf:addEventListener("touch",mostr)
-
+Runtime:addEventListener("enterFrame",arcadeReturn)
 
